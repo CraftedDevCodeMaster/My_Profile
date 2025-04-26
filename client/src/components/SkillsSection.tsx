@@ -1,45 +1,43 @@
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { skills } from "@/data/skills";
 import { motion } from "framer-motion";
 
 const SkillsSection = () => {
   // Group skills by category
   const frontendSkills = [
-    { name: "React", percentage: 85 },
-    { name: "Next.js", percentage: 80 },
-    { name: "TypeScript", percentage: 75 },
-    { name: "Material UI", percentage: 80 },
-    { name: "Tailwind CSS", percentage: 90 }
+    { name: "React", percentage: 85, icon: "⚛️" },
+    { name: "Next.js", percentage: 80, icon: "N" },
+    { name: "TypeScript", percentage: 75, icon: "TS" },
+    { name: "Material UI", percentage: 80, icon: "MUI" },
+    { name: "Tailwind CSS", percentage: 90, icon: "🌊" }
   ];
   
   const backendSkills = [
-    { name: "Java", percentage: 90 },
-    { name: "Spring Boot", percentage: 85 },
-    { name: "Node.js", percentage: 70 },
-    { name: "PostgreSQL", percentage: 75 },
-    { name: "MongoDB", percentage: 70 }
+    { name: "Java", percentage: 90, icon: "☕" },
+    { name: "Spring Boot", percentage: 85, icon: "🍃" },
+    { name: "Node.js", percentage: 70, icon: "📦" },
+    { name: "PostgreSQL", percentage: 75, icon: "🐘" },
+    { name: "MongoDB", percentage: 70, icon: "🍃" }
   ];
 
   return (
     <section id="skills" className="py-24 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <motion.h2 
-            className="text-3xl font-bold inline-block relative"
+            className="text-3xl font-bold inline-block relative mb-1"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
             My Skills
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-violet-600"></div>
           </motion.h2>
+          <div className="w-24 h-1 bg-violet-600 mx-auto"></div>
         </div>
         
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
           {/* Frontend skills */}
           <motion.div
-            className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6"
+            className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -60,7 +58,7 @@ const SkillsSection = () => {
           
           {/* Backend skills */}
           <motion.div
-            className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6"
+            className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -80,9 +78,9 @@ const SkillsSection = () => {
           </motion.div>
         </div>
         
-        {/* Additional Skills and Tools */}
+        {/* Additional Skills */}
         <motion.div
-          className="mt-12 bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 max-w-5xl mx-auto"
+          className="mt-12 bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 max-w-5xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -97,7 +95,7 @@ const SkillsSection = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.1 * index }}
+                transition={{ delay: 0.05 * index }}
                 whileHover={{ scale: 1.05, backgroundColor: "#f3f4f6" }}
               >
                 {skill}
@@ -114,6 +112,7 @@ interface SkillBarProps {
   skill: {
     name: string;
     percentage: number;
+    icon?: string;
   };
   index: number;
   color: string;

@@ -1,232 +1,233 @@
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
+import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Link2, Code, Briefcase, MessageSquare } from "lucide-react";
-import { FormEvent, useState } from "react";
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
-    message: "",
+    message: ""
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { id, value } = e.target;
-    setFormData((prev) => ({ ...prev, [id]: value }));
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    // Form is static/visual only per requirements
+    // In a real app, you would send this data to your backend
     console.log("Form submitted:", formData);
+    
+    // Reset form after submission
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: ""
+    });
+    
+    // Show success message to user
+    alert("Thanks for your message! I'll get back to you soon.");
   };
 
   return (
-    <section id="contact" className="py-16 bg-gray-100 dark:bg-gray-800">
+    <section id="contact" className="py-24 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
-        <motion.h2
-          className="text-3xl font-bold text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-        >
-          Get In Touch
-        </motion.h2>
+        <div className="text-center mb-12">
+          <motion.h2 
+            className="text-3xl font-bold inline-block relative mb-1"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            Get In Touch
+          </motion.h2>
+          <div className="w-32 h-1 bg-violet-600 mx-auto"></div>
+          
+          <motion.p
+            className="mt-6 max-w-2xl mx-auto text-gray-600 dark:text-gray-400"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            I'm currently available for freelance work and full-time positions. If you have a project that 
+            needs my expertise or want to discuss potential opportunities, feel free to reach out.
+          </motion.p>
+        </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <ContactInfo />
-          <ContactForm 
-            formData={formData} 
-            handleChange={handleChange} 
-            handleSubmit={handleSubmit} 
-          />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+          {/* Contact Information */}
+          <motion.div
+            className="lg:col-span-1 bg-gradient-to-r from-violet-600 to-purple-600 rounded-lg p-8 text-white"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
+            
+            <div className="space-y-6 mb-8">
+              <div className="flex items-center">
+                <div className="bg-white/10 p-3 rounded-full mr-4">
+                  <Phone className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-white/70 text-sm">Phone</p>
+                  <a href="tel:+919113276180" className="text-white hover:underline">
+                    +91 91132 76180
+                  </a>
+                </div>
+              </div>
+              
+              <div className="flex items-center">
+                <div className="bg-white/10 p-3 rounded-full mr-4">
+                  <Mail className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-white/70 text-sm">Email</p>
+                  <a href="mailto:praveenkumarr200025@gmail.com" className="text-white hover:underline">
+                    praveenkumarr200025@gmail.com
+                  </a>
+                </div>
+              </div>
+              
+              <div className="flex items-center">
+                <div className="bg-white/10 p-3 rounded-full mr-4">
+                  <MapPin className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-white/70 text-sm">Location</p>
+                  <p className="text-white">Bengaluru, India</p>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <h4 className="text-white/90 text-sm font-medium mb-4">Connect with me</h4>
+              <div className="flex space-x-4">
+                <a 
+                  href="https://github.com/CraftedDevCodeMaster" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white/10 p-2.5 rounded-full hover:bg-white/20 transition-colors"
+                >
+                  <FaGithub className="h-5 w-5" />
+                </a>
+                <a 
+                  href="https://linkedin.com/in/praveenkumar-r123" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white/10 p-2.5 rounded-full hover:bg-white/20 transition-colors"
+                >
+                  <FaLinkedin className="h-5 w-5" />
+                </a>
+                <a 
+                  href="mailto:praveenkumarr200025@gmail.com" 
+                  className="bg-white/10 p-2.5 rounded-full hover:bg-white/20 transition-colors"
+                >
+                  <FaEnvelope className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
+          </motion.div>
+          
+          {/* Contact Form */}
+          <motion.div
+            className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm p-8"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-gray-100">Send Me a Message</h3>
+            
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Your Name
+                  </label>
+                  <Input
+                    id="name"
+                    name="name"
+                    placeholder="John Doe"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Your Email
+                  </label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="john@example.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full"
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Subject
+                </label>
+                <Input
+                  id="subject"
+                  name="subject"
+                  placeholder="Project Inquiry"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                  className="w-full"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Your Message
+                </label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  placeholder="Hello, I'd like to discuss a potential project..."
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  className="w-full min-h-[150px]"
+                />
+              </div>
+              
+              <Button
+                type="submit"
+                className="w-full md:w-auto bg-violet-600 hover:bg-violet-700 text-white"
+              >
+                <Send className="h-4 w-4 mr-2" /> Send Message
+              </Button>
+            </form>
+          </motion.div>
         </div>
       </div>
     </section>
-  );
-};
-
-const ContactInfo = () => {
-  const { ref, controls } = useScrollAnimation();
-  
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, x: -50 }}
-      animate={controls}
-      transition={{ duration: 0.6 }}
-    >
-      <Card className="bg-white dark:bg-gray-700 mb-8">
-        <CardContent className="p-6">
-          <h3 className="font-bold text-xl mb-4">Contact Information</h3>
-          <ul className="space-y-4">
-            <li className="flex items-start">
-              <Mail className="text-primary dark:text-primary-light mr-3 h-5 w-5" />
-              <span className="text-gray-600 dark:text-gray-300">praveenkumarr200025@gmail.com</span>
-            </li>
-            <li className="flex items-start">
-              <Phone className="text-primary dark:text-primary-light mr-3 h-5 w-5" />
-              <span className="text-gray-600 dark:text-gray-300">+91 9113276180</span>
-            </li>
-            <li className="flex items-start">
-              <MapPin className="text-primary dark:text-primary-light mr-3 h-5 w-5" />
-              <span className="text-gray-600 dark:text-gray-300">Bengaluru, India</span>
-            </li>
-          </ul>
-        </CardContent>
-      </Card>
-      
-      <Card className="bg-white dark:bg-gray-700">
-        <CardContent className="p-6">
-          <h3 className="font-bold text-xl mb-4">Connect</h3>
-          <div className="flex space-x-4">
-            <SocialButton 
-              icon={<Code className="h-5 w-5" />} 
-              href="https://github.com/CraftedDevCodeMaster" 
-            />
-            <SocialButton 
-              icon={<Briefcase className="h-5 w-5" />} 
-              href="https://linkedin.com/in/praveenkumar-r123" 
-            />
-            <SocialButton 
-              icon={<Mail className="h-5 w-5" />} 
-              href="mailto:praveenkumarr200025@gmail.com" 
-            />
-            <SocialButton 
-              icon={<Phone className="h-5 w-5" />} 
-              href="tel:+919113276180" 
-            />
-          </div>
-        </CardContent>
-      </Card>
-    </motion.div>
-  );
-};
-
-interface SocialButtonProps {
-  icon: React.ReactNode;
-  href: string;
-}
-
-const SocialButton = ({ icon, href }: SocialButtonProps) => {
-  return (
-    <motion.a
-      href={href}
-      target="_blank" 
-      rel="noopener noreferrer"
-      className="w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-600 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-primary-light transition-all duration-300"
-      whileHover={{ 
-        scale: 1.15,
-        boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
-      }}
-      whileTap={{ scale: 0.95 }}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ 
-        type: "spring", 
-        stiffness: 300, 
-        damping: 15 
-      }}
-    >
-      {icon}
-    </motion.a>
-  );
-};
-
-interface ContactFormProps {
-  formData: {
-    name: string;
-    email: string;
-    subject: string;
-    message: string;
-  };
-  handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  handleSubmit: (e: FormEvent) => void;
-}
-
-const ContactForm = ({ formData, handleChange, handleSubmit }: ContactFormProps) => {
-  const { ref, controls } = useScrollAnimation();
-  
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, x: 50 }}
-      animate={controls}
-      transition={{ duration: 0.6 }}
-    >
-      <Card className="bg-white dark:bg-gray-700">
-        <CardContent className="p-6">
-          <h3 className="font-bold text-xl mb-6">Send a Message</h3>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-4">
-              <Label htmlFor="name" className="block text-gray-700 dark:text-gray-300 mb-2">
-                Name
-              </Label>
-              <Input
-                type="text"
-                id="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800"
-              />
-            </div>
-            
-            <div className="mb-4">
-              <Label htmlFor="email" className="block text-gray-700 dark:text-gray-300 mb-2">
-                Email
-              </Label>
-              <Input
-                type="email"
-                id="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800"
-              />
-            </div>
-            
-            <div className="mb-4">
-              <Label htmlFor="subject" className="block text-gray-700 dark:text-gray-300 mb-2">
-                Subject
-              </Label>
-              <Input
-                type="text"
-                id="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                className="w-full border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800"
-              />
-            </div>
-            
-            <div className="mb-6">
-              <Label htmlFor="message" className="block text-gray-700 dark:text-gray-300 mb-2">
-                Message
-              </Label>
-              <Textarea
-                id="message"
-                rows={4}
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800"
-              />
-            </div>
-            
-            <Button 
-              type="submit" 
-              className="w-full bg-primary hover:bg-primary-light text-white font-medium shadow-md hover:shadow-lg transition-all duration-200"
-            >
-              Send Message
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
-    </motion.div>
   );
 };
 
