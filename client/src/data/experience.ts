@@ -1,35 +1,25 @@
 export const experience = [
   {
-    title: "Senior Full Stack Developer",
-    company: "TechCorp Inc.",
-    period: "2020 - Present",
+    title: "Software Engineer",
+    company: "Paycorp Solutions Pvt Ltd",
+    period: "June 2023 - Present",
     responsibilities: [
-      "Led development of enterprise-level applications using Spring Boot and React.js",
-      "Implemented CI/CD pipelines that reduced deployment time by 40%",
-      "Mentored junior developers and conducted code reviews",
-      "Designed microservice architecture for scalable solutions"
+      "Developed and implemented new software features, resulting in increased user satisfaction",
+      "Designed and implemented payment processing systems using Spring Boot",
+      "Integrated with various bank APIs to enable account verification and fund transfers",
+      "Conducted unit testing and integration testing using JUnit and Mockito",
+      "Participated in code reviews to maintain coding standards and improved development processes"
     ]
   },
   {
-    title: "Java Developer",
-    company: "Software Solutions Ltd.",
-    period: "2017 - 2020",
+    title: "Software Engineer",
+    company: "Happiest Minds Technologies",
+    period: "Current",
     responsibilities: [
-      "Developed and maintained Java-based applications using Spring framework",
-      "Integrated third-party APIs and optimized database queries",
-      "Collaborated with cross-functional teams to deliver projects on schedule",
-      "Implemented automated testing strategies using JUnit and Mockito"
-    ]
-  },
-  {
-    title: "Frontend Developer",
-    company: "WebDesign Co.",
-    period: "2015 - 2017",
-    responsibilities: [
-      "Built responsive user interfaces using React.js and modern CSS frameworks",
-      "Worked with UX designers to implement visually appealing and user-friendly interfaces",
-      "Optimized web applications for maximum speed and scalability",
-      "Participated in Agile development processes and sprint planning"
+      "Working on Next.js with Spring Boot applications",
+      "Implementing API integrations and front-end development",
+      "Collaborating with cross-functional teams to deliver high-quality solutions",
+      "Developing responsive web applications with modern frameworks"
     ]
   }
 ];

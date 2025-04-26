@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const HeroSection = () => {
   // Animation variants
@@ -23,7 +24,12 @@ const HeroSection = () => {
     }
   };
 
-  const roles = ["Java Developer", "React.js Expert", "Spring Boot Engineer"];
+  const roles = [
+    "Software Engineer", 
+    "Java Developer", 
+    "Spring Boot Specialist",
+    "Full Stack Developer"
+  ];
 
   return (
     <section id="home" className="pt-24 pb-16 md:pt-32 md:pb-24">
@@ -37,7 +43,7 @@ const HeroSection = () => {
           >
             <motion.h1 className="text-4xl md:text-5xl font-bold mb-4" variants={itemVariants}>
               <span className="block">Hi, I'm</span>
-              <span className="text-primary dark:text-primary-light">John Doe</span>
+              <span className="text-primary dark:text-primary-light">Praveenkumar R</span>
             </motion.h1>
             
             <motion.div
@@ -46,11 +52,11 @@ const HeroSection = () => {
             >
               <motion.div
                 animate={{
-                  y: [-0, -120, -240, -0],
+                  y: [-0, -120, -240, -360, -0],
                 }}
                 transition={{
-                  duration: 6,
-                  times: [0, 0.33, 0.66, 1],
+                  duration: 8,
+                  times: [0, 0.25, 0.5, 0.75, 1],
                   repeat: Infinity,
                   repeatDelay: 1
                 }}
@@ -70,8 +76,27 @@ const HeroSection = () => {
               className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-lg"
               variants={itemVariants}
             >
-              A passionate full-stack developer specializing in Java and React.js with expertise in building robust, scalable applications.
+              Experienced software engineer specializing in payment processing, mandates, and bank API integrations with advanced proficiency in Spring Boot. Passionate about creating secure and scalable solutions for the financial sector.
             </motion.p>
+            
+            <motion.div className="flex space-x-6 mb-8" variants={itemVariants}>
+              <a 
+                href="https://github.com/CraftedDevCodeMaster" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-3xl text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-primary-light transition-colors duration-200"
+              >
+                <FaGithub />
+              </a>
+              <a 
+                href="https://linkedin.com/in/praveenkumar-r123" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-3xl text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-primary-light transition-colors duration-200"
+              >
+                <FaLinkedin />
+              </a>
+            </motion.div>
             
             <motion.div className="flex space-x-4" variants={itemVariants}>
               <Button
@@ -99,12 +124,10 @@ const HeroSection = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7 }}
           >
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary dark:border-primary-light shadow-xl">
-              <img
-                src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                alt="Profile"
-                className="w-full h-full object-cover"
-              />
+            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary dark:border-primary-light shadow-xl bg-gradient-to-br from-primary/20 to-primary-light/20">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-7xl font-bold text-primary dark:text-primary-light">PR</span>
+              </div>
             </div>
           </motion.div>
         </div>

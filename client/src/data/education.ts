@@ -1,14 +1,26 @@
 export const education = [
   {
-    degree: "Master of Science in Computer Science",
-    institution: "University of Technology",
-    period: "2013 - 2015",
-    description: "Specialized in Software Engineering with focus on distributed systems and cloud computing."
+    degree: "B.E in Mechanical Engineering",
+    institution: "Dr Ambedkar Institute of Technology, Bangalore",
+    period: "2018 - 2022",
+    description: "Graduated with 8.01 CGPA. Transitioned to software engineering through specialized training."
   },
   {
-    degree: "Bachelor of Science in Computer Engineering",
-    institution: "State University",
-    period: "2009 - 2013",
-    description: "Graduated with honors. Coursework included algorithms, data structures, and software design patterns."
+    degree: "PUC (Pre-University Course)",
+    institution: "Sri Byaraveshwara Rural Composite PU college",
+    period: "2016 - 2018",
+    description: "Achieved 84.5% in science stream. Developed strong analytical and problem-solving skills."
+  },
+  {
+    degree: "SSLC (Secondary School Leaving Certificate)",
+    institution: "Sri Sapthagiri Vidyalaya",
+    period: "2014 - 2016",
+    description: "Completed with 76.32%. Established a foundation for future academic endeavors."
+  },
+  {
+    degree: "Java Full Stack Training",
+    institution: "JSPIDERS",
+    period: "Certification",
+    description: "Specialized training in Java full stack development covering core Java, frameworks, and web technologies."
   }
 ];

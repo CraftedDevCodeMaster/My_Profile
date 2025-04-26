@@ -69,15 +69,15 @@ const ContactInfo = () => {
           <ul className="space-y-4">
             <li className="flex items-start">
               <Mail className="text-primary dark:text-primary-light mr-3 h-5 w-5" />
-              <span className="text-gray-600 dark:text-gray-300">john.doe@example.com</span>
+              <span className="text-gray-600 dark:text-gray-300">praveenkumarr200025@gmail.com</span>
             </li>
             <li className="flex items-start">
               <Phone className="text-primary dark:text-primary-light mr-3 h-5 w-5" />
-              <span className="text-gray-600 dark:text-gray-300">+1 (555) 123-4567</span>
+              <span className="text-gray-600 dark:text-gray-300">+91 9113276180</span>
             </li>
             <li className="flex items-start">
               <MapPin className="text-primary dark:text-primary-light mr-3 h-5 w-5" />
-              <span className="text-gray-600 dark:text-gray-300">San Francisco, CA</span>
+              <span className="text-gray-600 dark:text-gray-300">Bengaluru, India</span>
             </li>
           </ul>
         </CardContent>
