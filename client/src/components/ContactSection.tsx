@@ -87,10 +87,22 @@ const ContactInfo = () => {
         <CardContent className="p-6">
           <h3 className="font-bold text-xl mb-4">Connect</h3>
           <div className="flex space-x-4">
-            <SocialButton icon={<Link2 className="h-5 w-5" />} href="#" />
-            <SocialButton icon={<Code className="h-5 w-5" />} href="#" />
-            <SocialButton icon={<Briefcase className="h-5 w-5" />} href="#" />
-            <SocialButton icon={<MessageSquare className="h-5 w-5" />} href="#" />
+            <SocialButton 
+              icon={<Code className="h-5 w-5" />} 
+              href="https://github.com/CraftedDevCodeMaster" 
+            />
+            <SocialButton 
+              icon={<Briefcase className="h-5 w-5" />} 
+              href="https://linkedin.com/in/praveenkumar-r123" 
+            />
+            <SocialButton 
+              icon={<Mail className="h-5 w-5" />} 
+              href="mailto:praveenkumarr200025@gmail.com" 
+            />
+            <SocialButton 
+              icon={<Phone className="h-5 w-5" />} 
+              href="tel:+919113276180" 
+            />
           </div>
         </CardContent>
       </Card>
@@ -105,12 +117,26 @@ interface SocialButtonProps {
 
 const SocialButton = ({ icon, href }: SocialButtonProps) => {
   return (
-    <a
+    <motion.a
       href={href}
-      className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-600 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-primary-light transition-colors duration-200"
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-600 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-primary-light transition-all duration-300"
+      whileHover={{ 
+        scale: 1.15,
+        boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+      }}
+      whileTap={{ scale: 0.95 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ 
+        type: "spring", 
+        stiffness: 300, 
+        damping: 15 
+      }}
     >
       {icon}
-    </a>
+    </motion.a>
   );
 };
 

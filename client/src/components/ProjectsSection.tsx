@@ -49,62 +49,109 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 50 }}
       animate={controls}
       transition={{ 
-        duration: 0.5, 
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
         delay: index * 0.1,
-        ease: "easeOut" 
       }}
       className="h-full"
+      whileHover={{ 
+        y: -8,
+        transition: { duration: 0.3 }
+      }}
     >
-      <Card className="bg-white dark:bg-gray-700 overflow-hidden h-full flex flex-col transition-shadow duration-300 hover:shadow-xl">
-        <div className="h-48 overflow-hidden">
+      <Card className="bg-white dark:bg-gray-700 overflow-hidden h-full flex flex-col border-0 shadow-lg rounded-xl">
+        <div className="h-52 overflow-hidden relative">
+          <motion.div 
+            className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            whileHover={{ opacity: 1 }}
+          />
           <motion.img 
             src={project.image} 
             alt={project.title} 
-            className="w-full h-full object-cover"
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.3 }}
+            className="w-full h-full object-cover transition-transform duration-700"
+            whileHover={{ scale: 1.05 }}
           />
+          <div className="absolute top-3 right-3 z-20 flex flex-wrap gap-1 max-w-[70%] justify-end">
+            {project.technologies.slice(0, 2).map((tech, techIndex) => (
+              <Badge 
+                key={techIndex} 
+                className="bg-primary/90 hover:bg-primary text-white font-medium shadow-md"
+              >
+                {tech}
+              </Badge>
+            ))}
+            {project.technologies.length > 2 && (
+              <Badge className="bg-gray-700/90 hover:bg-gray-700 text-white font-medium shadow-md">
+                +{project.technologies.length - 2}
+              </Badge>
+            )}
+          </div>
         </div>
         <CardContent className="p-6 flex-grow flex flex-col">
-          <div className="flex justify-between items-start mb-4">
-            <h3 className="font-bold text-xl">{project.title}</h3>
-            <div className="flex flex-wrap gap-2 justify-end">
-              {project.technologies.map((tech, techIndex) => (
-                <Badge key={techIndex} variant="outline" className="bg-primary/20 text-primary-dark dark:text-primary-light">
-                  {tech}
-                </Badge>
-              ))}
+          <h3 className="font-bold text-xl mb-3 text-gray-800 dark:text-gray-100">{project.title}</h3>
+          <p className="text-gray-600 dark:text-gray-300 mb-6 flex-grow text-sm leading-relaxed">
+            {project.description}
+          </p>
+          
+          <div className="pt-4 border-t border-gray-200 dark:border-gray-600">
+            <div className="flex flex-wrap gap-3 justify-start">
+              {project.demoLink && (
+                <motion.a 
+                  href={project.demoLink}
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center px-3 py-1.5 rounded-full bg-primary/10 text-primary dark:text-primary-light text-sm hover:bg-primary/20 transition-colors duration-200"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Eye className="h-3.5 w-3.5 mr-1.5" />
+                  Demo
+                </motion.a>
+              )}
+              {project.sourceLink && (
+                <motion.a 
+                  href={project.sourceLink}
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center px-3 py-1.5 rounded-full bg-primary/10 text-primary dark:text-primary-light text-sm hover:bg-primary/20 transition-colors duration-200"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Code className="h-3.5 w-3.5 mr-1.5" />
+                  Source
+                </motion.a>
+              )}
+              {project.docsLink && (
+                <motion.a 
+                  href={project.docsLink}
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center px-3 py-1.5 rounded-full bg-primary/10 text-primary dark:text-primary-light text-sm hover:bg-primary/20 transition-colors duration-200"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <FileText className="h-3.5 w-3.5 mr-1.5" />
+                  Docs
+                </motion.a>
+              )}
+              {project.downloadLink && (
+                <motion.a 
+                  href={project.downloadLink}
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center px-3 py-1.5 rounded-full bg-primary/10 text-primary dark:text-primary-light text-sm hover:bg-primary/20 transition-colors duration-200"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Download className="h-3.5 w-3.5 mr-1.5" />
+                  Download
+                </motion.a>
+              )}
             </div>
-          </div>
-          <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">{project.description}</p>
-          <div className="flex flex-wrap gap-4 mt-4">
-            {project.demoLink && (
-              <a href={project.demoLink} className="inline-flex items-center text-primary dark:text-primary-light hover:underline">
-                <Eye className="h-4 w-4 mr-1" />
-                Live Demo
-              </a>
-            )}
-            {project.sourceLink && (
-              <a href={project.sourceLink} className="inline-flex items-center text-primary dark:text-primary-light hover:underline">
-                <Code className="h-4 w-4 mr-1" />
-                Source Code
-              </a>
-            )}
-            {project.docsLink && (
-              <a href={project.docsLink} className="inline-flex items-center text-primary dark:text-primary-light hover:underline">
-                <FileText className="h-4 w-4 mr-1" />
-                Documentation
-              </a>
-            )}
-            {project.downloadLink && (
-              <a href={project.downloadLink} className="inline-flex items-center text-primary dark:text-primary-light hover:underline">
-                <Download className="h-4 w-4 mr-1" />
-                Download
-              </a>
-            )}
           </div>
         </CardContent>
       </Card>
