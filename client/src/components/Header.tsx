@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import ThemeToggle from "./ThemeToggle";
 import MobileMenu from "./MobileMenu";
-import { Menu } from "lucide-react";
+import { Code, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
@@ -66,9 +66,14 @@ const Header = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="text-xl font-bold text-violet-600 dark:text-violet-400">
+              <div className="flex items-center mb-4">
+              <div className="w-10 h-10 bg-gradient-to-r from-primary to-primary-light rounded-lg flex items-center justify-center text-white mr-3">
+                <Code className="h-5 w-5" />
+              </div>
+              <span className="text-xl font-bold bg-gradient-to-r from-primary to-primary-light text-transparent bg-clip-text">
                 Praveen.dev
               </span>
+            </div>
             </motion.div>
           </Link>
 
@@ -126,14 +131,14 @@ const Header = () => {
             
             <ThemeToggle />
             
-            <div className="hidden md:block">
+            {/* <div className="hidden md:block">
               <Button
                 asChild
                 className="bg-violet-600 hover:bg-violet-700 text-white rounded-md px-4 py-2 text-sm"
               >
                 <a href="#contact">Hire Me</a>
               </Button>
-            </div>
+            </div> */}
 
             {/* Mobile Menu Button */}
             <motion.div

@@ -62,12 +62,12 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         <Separator className="bg-gray-100 dark:bg-gray-800 my-4" />
         
         <div className="px-4 py-6">
-          <Button
+          {/* <Button
             asChild
             className="w-full bg-violet-600 hover:bg-violet-700 text-white rounded-md"
           >
             <a href="#contact">Hire Me</a>
-          </Button>
+          </Button> */}
           
           <div className="mt-8">
             <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">Connect with me</h4>

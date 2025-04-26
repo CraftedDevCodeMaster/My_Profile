@@ -24,8 +24,7 @@ const ProjectsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Here are some of my recent projects that showcase my technical abilities and problem-solving
-            skills. Each project represents unique challenges that I've successfully overcome.
+           The following projects demonstrate my technical expertise and problem-solving skills, showcasing the diverse challenges I have addressed through practical solutions
           </motion.p>
         </div>
         
@@ -80,15 +79,15 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
     >
       {/* Project Thumbnail */}
       <div className={`bg-gradient-to-r ${gradient} h-52 flex items-center justify-center relative p-4`}>
-        <span className="text-white text-6xl font-bold opacity-60">
-          {getInitials(project.title)}
-        </span>
-        {index === 0 && (
-          <div className="absolute top-4 right-4 bg-white text-violet-600 dark:bg-violet-600 dark:text-white text-xs font-semibold px-2.5 py-0.5 rounded">
-            Featured
-          </div>
-        )}
-      </div>
+  <span className="text-white text-6xl font-bold opacity-60">
+    {getInitials(project.title)}
+  </span>
+  {(index === 0 || index === 1) && (
+    <div className="absolute top-4 right-4 bg-white text-violet-600 dark:bg-violet-600 dark:text-white text-xs font-semibold px-2.5 py-0.5 rounded">
+      Featured
+    </div>
+  )}
+</div>
       
       {/* Project Content */}
       <div className="p-6 flex-grow flex flex-col">
@@ -113,7 +112,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
         </div>
         
         {/* Links */}
-        <div className="flex space-x-3">
+        {/* <div className="flex space-x-3">
           {project.demoLink && (
             <a 
               href={project.demoLink} 
@@ -135,7 +134,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
               Source Code
             </a>
           )}
-        </div>
+        </div> */}
       </div>
     </motion.div>
   );

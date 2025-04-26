@@ -1,6 +1,6 @@
 export const education = [
   {
-    degree: "B.E in Mechanical Engineering",
+    degree: "Bachelor of Engineering",
     institution: "Dr Ambedkar Institute of Technology, Bangalore",
     period: "2018 - 2022",
     description: "Graduated with 8.01 CGPA. Transitioned to software engineering through specialized training."
@@ -9,7 +9,7 @@ export const education = [
     degree: "PUC (Pre-University Course)",
     institution: "Sri Byaraveshwara Rural Composite PU college",
     period: "2016 - 2018",
-    description: "Achieved 84.5% in science stream. Developed strong analytical and problem-solving skills."
+    description: "Achieved 84.5%. Developed strong analytical and problem-solving skills."
   },
   {
     degree: "SSLC (Secondary School Leaving Certificate)",
@@ -21,6 +21,6 @@ export const education = [
     degree: "Java Full Stack Training",
     institution: "JSPIDERS",
     period: "Certification",
-    description: "Specialized training in Java full stack development covering core Java, frameworks, and web technologies."
+    description: "Specialized training in Java full stack development covering core Java, frameworks, web technologies, SQL/PLSQL, and AWS."
   }
 ];

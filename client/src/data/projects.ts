@@ -1,7 +1,25 @@
 export const projects = [
+
+  {
+    title: "Riya Live Booking System",
+    description: "Developed a live booking system using the Riya API for real-time flight reservations and confirmations.",
+    image: "https://images.unsplash.com/photo-1511451897503-1b7b74253132?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    technologies: ["Next.js", "Spring Boot", "Riya API", "Mysql"],
+    demoLink: "#",
+    sourceLink: "https://github.com/CraftedDevCodeMaster"
+  },
+  {
+    title: "Riya Booking Management Dashboard",
+    description: "Created a management dashboard for monitoring and administering live bookings with advanced reporting features.",
+    image: "https://images.unsplash.com/photo-1515583049855-2343c90a1a18?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    technologies: ["Next.js", "Spring Boot", "Riya API", "Mysql"],
+    demoLink: "#",
+    sourceLink: "https://github.com/CraftedDevCodeMaster"
+  },
+  
   {
     title: "Bank Payment Processing System",
-    description: "Developed a secure payment processing system integrated with multiple bank APIs, enabling seamless fund transfers and account verifications with robust error handling and transaction logging.",
+    description: "Secure payment processing system integrated with bank APIs for fund transfers and account verifications.",
     image: "https://images.unsplash.com/photo-1601933470096-0e34634ffcde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     technologies: ["Java", "Spring Boot", "JPA", "Oracle SQL"],
     demoLink: "#",
@@ -9,7 +27,7 @@ export const projects = [
   },
   {
     title: "Mandate Management Solution",
-    description: "Built a comprehensive mandate management system for financial institutions that handles creation, approval, and execution of payment mandates with secure authentication and audit trails.",
+    description: "Comprehensive system for managing payment mandates with secure authentication and audit trails.",
     image: "https://images.unsplash.com/photo-1589666564472-72443304c6fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     technologies: ["Spring Boot", "Spring Security", "Hibernate", "Oracle SQL"],
     demoLink: "#",
@@ -17,7 +35,7 @@ export const projects = [
   },
   {
     title: "Banking Transaction Dashboard",
-    description: "Created an interactive dashboard for monitoring and analyzing banking transactions with real-time visualizations, filtering capabilities, and comprehensive reporting tools.",
+    description: "Interactive dashboard for monitoring banking transactions with real-time visualizations.",
     image: "https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     technologies: ["JavaScript", "jQuery", "Bootstrap", "Jasper Reports"],
     demoLink: "#",
@@ -25,7 +43,7 @@ export const projects = [
   },
   {
     title: "Financial API Integration Service",
-    description: "Engineered a service for integrating with multiple financial institution APIs, providing a unified interface for account verification, transaction processing, and data retrieval.",
+    description: "Service for integrating with financial institution APIs, providing a unified interface for transaction processing.",
     image: "https://images.unsplash.com/photo-1527219525722-f9767a7f2884?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     technologies: ["Java", "Spring Boot", "Apache Camel", "RESTful APIs"],
     docsLink: "#",
@@ -33,7 +51,7 @@ export const projects = [
   },
   {
     title: "Next.js Enterprise Web Application",
-    description: "Currently working on developing an enterprise-level web application with Next.js and Spring Boot, focusing on responsive design, authentication, and modern UI components.",
+    description: "Developed an enterprise-level web application with Next.js and Spring Boot, focusing on responsive design and authentication.",
     image: "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     technologies: ["Next.js", "JavaScript", "Spring Boot", "RESTful APIs"],
     demoLink: "#",
@@ -41,7 +59,7 @@ export const projects = [
   },
   {
     title: "Secure Transaction Logging System",
-    description: "Implemented a robust logging system for financial transactions that ensures data integrity, provides audit trails, and supports compliance with financial regulations.",
+    description: "Robust system for logging financial transactions, ensuring data integrity and compliance.",
     image: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     technologies: ["Java", "Spring Data JPA", "PLSQL", "Oracle SQL"],
     demoLink: "#",
