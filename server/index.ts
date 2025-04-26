@@ -52,12 +52,16 @@ app.use((req, res, next) => {
   // Setup Vite in development environment
   if (app.get("env") === "development") {
     await setupVite(app, server);
+
+    // Only in local dev, start the server
+    const port = process.env.PORT || 3000;
+    server.listen({ port: Number(port), host: "0.0.0.0" }, () => {
+      log(`Server running at http://localhost:${port}`);
+    });
   } else {
     serveStatic(app);
   }
-
-  const port = process.env.PORT || 3000;
-  server.listen({ port: Number(port), host: "0.0.0.0" }, () => {
-    log(`Server running at http://localhost:${port}`);
-  });
 })();
+
+// 👇 Important: Export the app for Vercel!
+export default app;
