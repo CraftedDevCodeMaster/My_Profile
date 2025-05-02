@@ -46,11 +46,7 @@ export async function setupVite(app: Express, server: Server) {
     const url = req.originalUrl;
 
     try {
-      const clientTemplate = path.resolve(
-        process.cwd(),
-        "client",
-        "index.html"
-      );
+      const clientTemplate = path.resolve(process.cwd(), "client", "index.html");
 
       // Always reload the latest index.html and inject nanoid version
       let template = await fs.promises.readFile(clientTemplate, "utf-8");
@@ -68,7 +64,8 @@ export async function setupVite(app: Express, server: Server) {
 }
 
 export function serveStatic(app: Express) {
-  const distPath = path.resolve(process.cwd(), "client", "dist");
+  // ✅ Corrected build output path based on Vite config
+  const distPath = path.resolve(process.cwd(), "dist/public");
 
   if (!fs.existsSync(distPath)) {
     throw new Error(
